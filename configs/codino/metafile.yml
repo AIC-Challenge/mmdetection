@@ -1,0 +1,31 @@
+Collections:
+  - Name: Co-DETR
+    Metadata:
+      Training_Data: COCO
+      Training_Techniques:
+        - AdamW
+        - Weight_Decay
+      Training_Resources: 8x_V100_GPUs
+      Architecture:
+        - Transformer
+        - ResNet
+        - Attention
+    Paper:
+      URL: https://arxiv.org/abs/2211.12860
+      Title: 'DETRs with Collaborative Hybrid Assignments Training'
+    README: projects/CO-DETR/README.md
+    Code:
+      URL: https://github.com/AIC-Challenge/mmdetection/blob/main/projects/models/co_detr.py
+      Version: main
+    
+Models:
+  - Name: co_dino_5scale_lsj_vit_large_lvis
+    In_Collection: Co-DETR
+    Config: projects/configs/co_dino_vit/co_dino_5scale_lsj_vit_large_lvis.py
+    Metadata:
+      Epochs: 12
+    Results:
+      - Task: Object Detection
+        Dataset: LVIS
+        Metrics:
+          box_AP: 68.0
